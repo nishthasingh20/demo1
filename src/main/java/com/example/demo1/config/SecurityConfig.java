@@ -22,7 +22,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**", "/ws/**", "/api/users").permitAll()
+                        .requestMatchers("/api/auth/**", "/ws/**", "/api/users", "/api/messages/**", "/api/chat/room").permitAll()
                         .anyRequest().authenticated()
                 );
         return http.build();

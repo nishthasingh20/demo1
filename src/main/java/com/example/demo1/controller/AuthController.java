@@ -34,6 +34,7 @@ public class AuthController {
             userRepository.findByEmail(request.getEmail())
                 .ifPresent(user -> {
                     System.out.println("User logged in: " + user.getEmail() + ", " + user.getFullName());
+                    response.setLoggedinUsername(user.getFullName());
                 });
         } else {
             System.out.println("Login attempt failed for email: " + request.getEmail());
